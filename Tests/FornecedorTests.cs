@@ -23,6 +23,7 @@ namespace Tests
             var fornecedorService = new FornecedorService(GetMockEmpresaEstado(UFEnum.PR), GetFornecedorCadastroExistente(false));
             var model = new Mock<IFornecedorFisicaCreateModel>();
             model.Setup(p => p.DataNascimento).Returns(new DateTime(2005, 05, 08));
+            model.Setup(p => p.Cadastro).Returns("923.934.400-46");
             Assert.Throws<MenorDeIdadeException>(() => fornecedorService.CreatePessoaFisica(model.Object));
         }
 
@@ -34,6 +35,7 @@ namespace Tests
                     var fornecedorService = new FornecedorService(GetMockEmpresaEstado(estado), GetFornecedorCadastroExistente(false));
                     var model = new Mock<IFornecedorFisicaCreateModel>();
                     model.Setup(p => p.DataNascimento).Returns(new DateTime(2000, 05, 08));
+                    model.Setup(p => p.Cadastro).Returns("923.934.400-46");
                     fornecedorService.CreatePessoaFisica(model.Object);
                 });
         }
@@ -44,6 +46,7 @@ namespace Tests
             var fornecedorService = new FornecedorService(GetMockEmpresaEstado(UFEnum.PR), GetFornecedorCadastroExistente(true));
             var model = new Mock<IFornecedorFisicaCreateModel>();
             model.Setup(p => p.DataNascimento).Returns(new DateTime(2005, 05, 08));
+            model.Setup(p => p.Cadastro).Returns("923.934.400-46");
             Assert.Throws<CasdastroFornecedorJaExisteException>(() => fornecedorService.CreatePessoaFisica(model.Object));
         }
 
@@ -53,6 +56,7 @@ namespace Tests
             var fornecedorService = new FornecedorService(GetEmpresaNaoExistente(), GetFornecedorCadastroExistente(true));
             var model = new Mock<IFornecedorFisicaCreateModel>();
             model.Setup(p => p.DataNascimento).Returns(new DateTime(2005, 05, 08));
+            model.Setup(p => p.Cadastro).Returns("923.934.400-46");
             Assert.Throws<EmpresaNaoExisteException>(() => fornecedorService.CreatePessoaFisica(model.Object));
         }
 
