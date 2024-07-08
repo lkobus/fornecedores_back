@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="FluentNHibernate" Version="2.1.2" />
-    <PackageReference Include="NHibernate" Version="5.2.7" />
+    <PackageReference Include="NHibernate" Version="5.4.9" />
     <PackageReference Include="Ninject" Version="3.3.4" />
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.112" />
   </ItemGroup>
